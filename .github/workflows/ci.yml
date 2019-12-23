@@ -15,10 +15,14 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      PROJECT_NAME: Neovolve.BuildScriptTest
+#    env:
+#      PROJECT_NAME: Neovolve.BuildScriptTest
 
     steps:
+
+    - name: ResolveProject
+      shell: pwsh
+      run: Write-Host "::set-env name=PROJECT_NAME::$($GITHUB_REPOSITORY.substring($GITHUB_REPOSITORY.IndexOf('/') + 1))"
 
     - name: Checkout
       uses: actions/checkout@v1
