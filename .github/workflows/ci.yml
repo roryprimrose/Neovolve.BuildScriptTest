@@ -15,17 +15,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-#    env:
-#      PROJECT_NAME: Neovolve.BuildScriptTest
 
     steps:
+
+    - name: Checkout
+      uses: actions/checkout@v1
 
     - name: ResolveProject
       shell: pwsh
       run: Write-Host "::set-env name=PROJECT_NAME::$(${env:GITHUB_REPOSITORY}.substring(${env:GITHUB_REPOSITORY}.IndexOf('/') + 1))"
-
-    - name: Checkout
-      uses: actions/checkout@v1
 
     - name: Fetch tags and master for GitVersion
       run: |
