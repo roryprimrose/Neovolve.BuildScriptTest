@@ -10,7 +10,9 @@ namespace Neovolve.BuildScriptTest.UnitTests
         {
             var sut = new Example();
 
-            Assert.NotNull(sut);
+            var actual = sut.DoSomething();
+
+            Assert.NotNull(actual);
         }
     }
 }
